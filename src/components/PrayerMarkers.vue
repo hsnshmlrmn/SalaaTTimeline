@@ -5,6 +5,9 @@ defineProps({
 </script>
 
 <template>
+  <div class="active-label" v-if="active">
+  {{ active.name }}
+</div>
   <div class="markers">
     <div
       v-for="m in markers"
@@ -49,3 +52,4 @@ defineProps({
   }
 }
 </style>
+
