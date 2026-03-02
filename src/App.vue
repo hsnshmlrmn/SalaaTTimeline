@@ -31,9 +31,10 @@ onMounted(async () => {
 
 <template>
   <h1>SalaaT Timeline</h1>
+  
+<div class="timeline-wrapper">
+  <DayTimeline :segments="segments" />
+  <PrayerMarkers :markers="markers" />
+</div>
 
-  <div style="position: relative; margin-top: 40px;">
-    <DayTimeline :segments="segments" />
-    <PrayerMarkers :markers="markers" />
-  </div>
 </template>
