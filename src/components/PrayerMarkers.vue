@@ -22,6 +22,7 @@ defineProps({
   position: relative;
   height: 0;
 }
+
 .marker {
   position: absolute;
   top: -28px;
@@ -32,5 +33,19 @@ defineProps({
   padding: 3px 6px;
   border-radius: 6px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+}
+
+/* Mobile: smaller labels, more spacing, allow wrapping */
+@media (max-width: 600px) {
+  .marker {
+    top: -34px;
+    font-size: 0.7rem;
+    padding: 2px 5px;
+    white-space: normal;
+    text-align: center;
+    max-width: 60px;
+    line-height: 1.1;
+  }
 }
 </style>
