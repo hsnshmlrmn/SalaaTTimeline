@@ -27,7 +27,12 @@ defineProps({
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-.segment {
-  height: 100%;
+
+/* Mobile: increase height for better visibility */
+@media (max-width: 600px) {
+  .timeline {
+    height: 120px;
+    border-radius: 12px;
+  }
 }
 </style>
