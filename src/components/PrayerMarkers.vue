@@ -14,10 +14,9 @@ defineProps({
       :class="{ vertical }"
       :style="vertical
         ? { top: m.position + '%' }
-        : { left: m.position + '%' }
-      "
+        : { left: m.position + '%' }"
     >
-      <span class="label">{{ m.name }}</span>
+      {{ m.name }}
     </div>
   </div>
 </template>
@@ -35,11 +34,18 @@ defineProps({
 
 .marker {
   position: absolute;
+  top: -25px;
   transform: translateX(-50%);
+  background: white;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 
 .marker.vertical {
   left: -10px;
+  top: auto;
   transform: translateY(-50%);
 }
 </style>
