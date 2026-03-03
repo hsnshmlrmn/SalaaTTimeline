@@ -2,6 +2,10 @@ export function toMinutes(date) {
   return date.getHours() * 60 + date.getMinutes()
 }
 
+function clamp(n) {
+  return Math.min(100, Math.max(0, n))
+}
+
 function seg(id, start, end, colorStart, colorEnd, type) {
   return { id, start, end, colorStart, colorEnd, type }
 }
@@ -14,7 +18,7 @@ export function buildSegments(times) {
   const zawwal = new Date(dhuhr.getTime() - 10 * 60000)
   const nextFajr = new Date(fajr.getTime() + 24 * 60 * 60000)
 
-  const total = toMinutes(nextFajr) - toMinutes(fajr)
+  const total = Math.max(1, toMinutes(nextFajr) - toMinutes(fajr))
 
   const segments = [
     seg('fajr-sunrise', fajr, sunrise, '#0B1D51', '#FFB56B', 'prayer'),
@@ -26,19 +30,19 @@ export function buildSegments(times) {
     seg('asrEarly-asrLate', asrEarly, asrLate, '#F2C57C', '#E08E45', 'prayer'),
     seg('asrLate-maghrib', asrLate, maghrib, '#E08E45', '#D1495B', 'prayer'),
     seg('maghrib-isha', maghrib, isha, '#D1495B', '#1B1B3A', 'prayer'),
-    seg('isha-lastThird', isha, nextFajr, '#1B1B3A', '#0A0F2C', 'prayer')
+    seg('isha-nextFajr', isha, nextFajr, '#1B1B3A', '#0A0F2C', 'prayer')
   ]
 
   return segments.map(s => ({
     ...s,
-    width: ((toMinutes(s.end) - toMinutes(s.start)) / total) * 100
+    width: clamp(((toMinutes(s.end) - toMinutes(s.start)) / total) * 100)
   }))
 }
 
 export function buildMarkers(times) {
   const base = toMinutes(times.fajr)
   const nextFajr = new Date(times.fajr.getTime() + 24 * 60 * 60000)
-  const total = toMinutes(nextFajr) - base
+  const total = Math.max(1, toMinutes(nextFajr) - base)
 
   const entries = [
     ['Fajr', times.fajr],
@@ -52,6 +56,6 @@ export function buildMarkers(times) {
 
   return entries.map(([name, t]) => ({
     name,
-    position: ((toMinutes(t) - base) / total) * 100
+    position: clamp(((toMinutes(t) - base) / total) * 100)
   }))
 }
