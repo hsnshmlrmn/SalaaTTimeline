@@ -44,6 +44,7 @@ onMounted(() => {
     { name: 'Maghrib', position: pos(maghrib) },
     { name: 'Isha', position: pos(isha) }
   ]
+}))
 </script>
 
 <template>
@@ -62,6 +63,7 @@ onMounted(() => {
   padding: 0 10px;
 }
 </style>
+
 
 
 
