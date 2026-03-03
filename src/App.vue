@@ -7,19 +7,18 @@ const segments = ref([])
 const markers = ref([])
 
 onMounted(() => {
-  // Fixed sample times: 24h from 4:00 to next 4:00
-  const fajr = 4 * 60
-  const sunrise = 6 * 60
-  const dhuhr = 12 * 60
-  const asr = 15 * 60
-  const maghrib = 18 * 60
-  const isha = 19.5 * 60
-  const nextFajr = 24 * 60 + fajr
-  const total = nextFajr - fajr
+  const coords = { lat: 10.5, lng: -61.4 } // Trinidad fallback
 
-  function w(start, end) {
-    return ((end - start) / total) * 100
-  }
+  const times = computePrayerTimes(coords)
+
+  console.log('Prayer times:', times)
+
+  segments.value = buildSegments(times)
+  markers.value = buildMarkers(times)
+
+  console.log('Segments:', segments.value)
+  console.log('Markers:', markers.value)
+})
 
   segments.value = [
     { id: 'fajr-sunrise', width: w(fajr, sunrise), colorStart: '#0B1D51', colorEnd: '#FFB56B', type: 'prayer' },
@@ -64,3 +63,4 @@ onMounted(() => {
   padding: 0 10px;
 }
 </style>
+
