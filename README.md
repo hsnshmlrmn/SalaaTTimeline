@@ -6,6 +6,7 @@ A Vue 3 + Vite web app that displays a sky‑gradient timeline of Islamic prayer
 
 npm install
 npm run dev
+npm install adhan
 
 ## Build
 
@@ -18,3 +19,4 @@ This project auto‑deploys using GitHub Actions.
 Your site will appear at:
 
 https://<USERNAME>.github.io/SalaaTTimeline/
+
