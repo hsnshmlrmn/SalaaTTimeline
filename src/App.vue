@@ -47,7 +47,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <h1>SalaaT Timeline</h1>
+  <h1>SalaaTTimeline</h1>
 
   <div class="timeline-wrapper">
     <DayTimeline :segments="segments" />
@@ -62,5 +62,6 @@ onMounted(() => {
   padding: 0 10px;
 }
 </style>
+
 
 
