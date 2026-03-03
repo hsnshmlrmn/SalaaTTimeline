@@ -7,7 +7,12 @@ import { buildSegments, buildMarkers } from './utils/timeUtils'
 
 const segments = ref([])
 const markers = ref([])
+const isMobile = ref(window.innerWidth < 600)
 
+window.addEventListener('resize', () => {
+  isMobile.value = window.innerWidth < 600
+})
+  
 async function getLocation() {
   return new Promise(resolve => {
     navigator.geolocation.getCurrentPosition(
@@ -33,8 +38,10 @@ onMounted(async () => {
   <h1>SalaaT Timeline</h1>
   
 <div class="timeline-wrapper">
+  <DayTimeline :segments="segments" :vertical="isMobile" />
   <DayTimeline :segments="segments" />
   <PrayerMarkers :markers="markers" />
 </div>
 
 </template>
+
