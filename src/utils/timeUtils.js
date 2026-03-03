@@ -57,11 +57,12 @@ export function buildMarkers(times) {
   ]
 
   return entries.map(([name, t]) => ({
-    name,
-    time: formatTime(t),
-    position: clamp(((toMinutes(t) - base) / total) * 100)
+  name,
+  time: formatTime(t),   // ← ADD THIS
+  position: clamp(((toMinutes(t) - base) / total) * 100)
   }))
 }
+
 
 
 
