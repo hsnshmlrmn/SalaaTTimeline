@@ -1,26 +1,18 @@
 <script setup>
-import { ref, onMounted } from 'vue'
 import DayTimeline from './components/DayTimeline.vue'
 import PrayerMarkers from './components/PrayerMarkers.vue'
-import { computePrayerTimes } from './utils/prayerCalc'
-import { buildSegments, buildMarkers } from './utils/timeUtils'
 
-const segments = ref([])
-const markers = ref([])
+const segments = [
+  { id: 'seg1', width: 30, colorStart: '#0B1D51', colorEnd: '#FFB56B' },
+  { id: 'seg2', width: 40, colorStart: '#FFB56B', colorEnd: '#87CEEB' },
+  { id: 'seg3', width: 30, colorStart: '#87CEEB', colorEnd: '#1B1B3A' }
+]
 
-onMounted(() => {
-  const coords = { lat: 10.5, lng: -61.4 }
-
-  const times = computePrayerTimes(coords)
-
-  console.log('Prayer times:', times)
-
-  segments.value = buildSegments(times)
-  markers.value = buildMarkers(times)
-
-  console.log('Segments:', segments.value)
-  console.log('Markers:', markers.value)
-})
+const markers = [
+  { name: 'A', position: 10 },
+  { name: 'B', position: 50 },
+  { name: 'C', position: 85 }
+]
 </script>
 
 <template>
