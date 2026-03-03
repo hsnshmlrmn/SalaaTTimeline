@@ -16,9 +16,14 @@ export function buildSegments(times) {
   const ishraq = new Date(sunrise.getTime() + 15 * 60000)
   const duha = new Date((ishraq.getTime() + dhuhr.getTime()) / 2)
   const zawwal = new Date(dhuhr.getTime() - 10 * 60000)
-  const nextFajr = new Date(fajr.getTime() + 24 * 60 * 60000)
+  // Force next Fajr to be tomorrow at the same local time
+const nextFajr = new Date(fajr)
+nextFajr.setDate(nextFajr.getDate() + 1)
 
-  const total = Math.max(1, toMinutes(nextFajr) - toMinutes(fajr))
+  const total = Math.max(
+  1,
+  (toMinutes(nextFajr) + 1440) - toMinutes(fajr)
+)
 
   const segments = [
     seg('fajr-sunrise', fajr, sunrise, '#0B1D51', '#FFB56B', 'prayer'),
@@ -59,3 +64,4 @@ export function buildMarkers(times) {
     position: clamp(((toMinutes(t) - base) / total) * 100)
   }))
 }
+
