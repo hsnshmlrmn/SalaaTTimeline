@@ -7,13 +7,13 @@ const segments = [
     colorEnd: '#FFB56B',
     type: 'prayer'
   },
-  {
-    id: 'sunrise-ishraq',
-    width: 10,
-    colorStart: '#FFB56B',
-    colorEnd: '#FFE9A0',
-    type: 'forbidden'
-  },
+{
+  id: 'sunrise-ishraq',
+  width: 10,
+  colorStart: '#FFB56B',
+  colorEnd: '#FFE9A0',
+  type: 'forbidden'
+}
   {
     id: 'ishraq-duha',
     width: 20,
@@ -102,4 +102,5 @@ const markers = [
   font-size: 0.75rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }</style>
+
 
