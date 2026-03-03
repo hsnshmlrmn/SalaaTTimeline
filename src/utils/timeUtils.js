@@ -1,3 +1,5 @@
+import { formatTime } from './formatTime'
+
 export function toMinutes(date) {
   return date.getHours() * 60 + date.getMinutes()
 }
@@ -39,8 +41,6 @@ export function buildSegments(times) {
   }))
 }
 
-import { formatTime } from 'formatTime'
-
 export function buildMarkers(times) {
   const base = toMinutes(times.fajr)
   const nextFajr = new Date(times.fajr.getTime() + 24 * 60 * 60000)
@@ -62,5 +62,6 @@ export function buildMarkers(times) {
     position: clamp(((toMinutes(t) - base) / total) * 100)
   }))
 }
+
 
 
