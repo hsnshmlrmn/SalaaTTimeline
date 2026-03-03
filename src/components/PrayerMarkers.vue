@@ -12,8 +12,7 @@ defineProps({
       class="marker"
       :style="{ left: m.position + '%' }"
     >
-      <div class="label">{{ m.name }}</div>
-      <div class="time">{{ m.time }}</div>
+      {{ m.name }}
     </div>
   </div>
 </template>
@@ -26,18 +25,12 @@ defineProps({
 
 .marker {
   position: absolute;
-  top: -40px;
+  top: -25px;
   transform: translateX(-50%);
   background: white;
   padding: 4px 6px;
   border-radius: 6px;
   font-size: 0.75rem;
-  text-align: center;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.marker .time {
-  font-size: 0.65rem;
-  opacity: 0.7;
 }
 </style>
