@@ -5,18 +5,18 @@ defineProps({
 </script>
 
 <template>
-  <div class="marker" :style="{ left: m.position + '%' }">
+  <div
+  v-for="m in markers"
+  :key="m.name"
+  class="marker"
+  :style="{ left: m.position + '%' }"
+>
   <div class="label">{{ m.name }}</div>
   <div class="time">{{ m.time }}</div>
 </div>
 </template>
 
 <style>
-.markers {
-  position: relative;
-  height: 0;
-}
-
 .marker {
   position: absolute;
   top: -40px;
@@ -34,5 +34,6 @@ defineProps({
   opacity: 0.7;
 }
 </style>
+
 
 
