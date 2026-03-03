@@ -39,7 +39,7 @@ export function buildSegments(times) {
   }))
 }
 
-import { formatTime } from './formatTime'
+import { formatTime } from 'formatTime'
 
 export function buildMarkers(times) {
   const base = toMinutes(times.fajr)
@@ -62,4 +62,5 @@ export function buildMarkers(times) {
     position: clamp(((toMinutes(t) - base) / total) * 100)
   }))
 }
+
 
