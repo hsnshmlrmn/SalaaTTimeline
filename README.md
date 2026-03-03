@@ -1,5 +1,20 @@
 # SalaaT Timeline
 
-A Vue 3 + Vite static web app that displays a horizontal sky‑gradient timeline of Islamic prayer times, including forbidden intervals and derived times such as Ishraq, Duha, Zawwal, and the last third of the night.
+A Vue 3 + Vite web app that displays a sky‑gradient timeline of Islamic prayer times, including forbidden intervals and derived times such as Ishraq, Duha, Zawwal, and the last third of the night.
 
 ## Development
+
+npm install
+npm run dev
+
+## Build
+
+npm run build
+
+## Deployment (GitHub Pages)
+
+This project auto‑deploys using GitHub Actions.
+
+Your site will appear at:
+
+https://<USERNAME>.github.io/SalaaTTimeline/
