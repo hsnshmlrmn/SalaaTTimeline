@@ -1,5 +1,3 @@
-import { formatTime } from './formatTime'
-
 export function toMinutes(date) {
   return date.getHours() * 60 + date.getMinutes()
 }
@@ -57,13 +55,7 @@ export function buildMarkers(times) {
   ]
 
   return entries.map(([name, t]) => ({
-  name,
-  time: formatTime(t),
-  position: clamp(((toMinutes(t) - base) / total) * 100)
-}))
+    name,
+    position: clamp(((toMinutes(t) - base) / total) * 100)
+  }))
 }
-
-
-
-
-
