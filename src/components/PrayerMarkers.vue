@@ -32,7 +32,6 @@ defineProps({
   padding: 4px 6px;
   border-radius: 6px;
   font-size: 0.75rem;
-  text-align: center;
   white-space: nowrap;
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
