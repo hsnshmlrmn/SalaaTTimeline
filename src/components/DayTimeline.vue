@@ -31,14 +31,15 @@ defineProps({
 .timeline {
   display: flex;
   height: 100px;
+  min-height: 100px;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
-
 .timeline.vertical {
   flex-direction: column;
   width: 100%;
+  min-height: 500px;
   height: 500px;
 }
 
@@ -51,3 +52,4 @@ defineProps({
   height: auto;
 }
 </style>
+
