@@ -7,14 +7,11 @@ function seg(id, start, end, colorStart, colorEnd, type) {
 }
 
 export function buildSegments(times) {
-  const {
-    fajr, sunrise, dhuhr, asrEarly, asrLate, maghrib, isha
-  } = times
+  const { fajr, sunrise, dhuhr, asrEarly, asrLate, maghrib, isha } = times
 
   const ishraq = new Date(sunrise.getTime() + 15 * 60000)
   const duha = new Date((ishraq.getTime() + dhuhr.getTime()) / 2)
   const zawwal = new Date(dhuhr.getTime() - 10 * 60000)
-
   const nextFajr = new Date(fajr.getTime() + 24 * 60 * 60000)
 
   const total = toMinutes(nextFajr) - toMinutes(fajr)
