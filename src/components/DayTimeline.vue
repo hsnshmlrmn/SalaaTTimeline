@@ -12,8 +12,7 @@ defineProps({
       class="segment"
       :style="{
         width: seg.width + '%',
-        background: `linear-gradient(to right, ${seg.colorStart}, ${seg.colorEnd})`,
-        opacity: seg.type === 'forbidden' ? 0.45 : 1
+        background: `linear-gradient(to right, ${seg.colorStart}, ${seg.colorEnd})`
       }"
     ></div>
   </div>
