@@ -6,10 +6,7 @@ defineProps({
 </script>
 
 <template>
-  <div
-    class="timeline"
-    :class="{ vertical }"
-  >
+  <div class="timeline" :class="{ vertical }">
     <div
       v-for="seg in segments"
       :key="seg.id"
@@ -25,8 +22,7 @@ defineProps({
             width: seg.width + '%',
             background: `linear-gradient(to right, ${seg.colorStart}, ${seg.colorEnd})`,
             opacity: seg.type === 'forbidden' ? 0.45 : 1
-          }
-      "
+          }"
     ></div>
   </div>
 </template>
@@ -34,7 +30,7 @@ defineProps({
 <style>
 .timeline {
   display: flex;
-  height: 90px;
+  height: 100px;
   border-radius: 14px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -46,7 +42,6 @@ defineProps({
   height: 500px;
 }
 
-/* Segment styles */
 .segment {
   height: 100%;
 }
