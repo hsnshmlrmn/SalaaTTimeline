@@ -5,16 +5,10 @@ defineProps({
 </script>
 
 <template>
-  <div class="markers">
-    <div
-      v-for="m in markers"
-      :key="m.name"
-      class="marker"
-      :style="{ left: m.position + '%' }"
-    >
-      {{ m.name }}
-    </div>
-  </div>
+  <div class="marker" :style="{ left: m.position + '%' }">
+  <div class="label">{{ m.name }}</div>
+  <div class="time">{{ m.time }}</div>
+</div>
 </template>
 
 <style>
@@ -34,3 +28,4 @@ defineProps({
   box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
 </style>
+
