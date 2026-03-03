@@ -1,20 +1,32 @@
 <script setup>
 defineProps({
-  segments: Array
+  segments: Array,
+  vertical: Boolean
 })
 </script>
 
 <template>
-  <div class="timeline">
+  <div
+    class="timeline"
+    :class="{ vertical }"
+  >
     <div
       v-for="seg in segments"
       :key="seg.id"
       class="segment"
-      :style="{
-        width: seg.width + '%',
-        background: `linear-gradient(to right, ${seg.colorStart}, ${seg.colorEnd})`,
-        opacity: seg.type === 'forbidden' ? 0.45 : 1
-      }"
+      :class="{ vertical }"
+      :style="vertical
+        ? {
+            height: seg.width + '%',
+            background: `linear-gradient(to bottom, ${seg.colorStart}, ${seg.colorEnd})`,
+            opacity: seg.type === 'forbidden' ? 0.45 : 1
+          }
+        : {
+            width: seg.width + '%',
+            background: `linear-gradient(to right, ${seg.colorStart}, ${seg.colorEnd})`,
+            opacity: seg.type === 'forbidden' ? 0.45 : 1
+          }
+      "
     ></div>
   </div>
 </template>
@@ -28,11 +40,19 @@ defineProps({
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-/* Mobile: increase height for better visibility */
-@media (max-width: 600px) {
-  .timeline {
-    height: 120px;
-    border-radius: 12px;
-  }
+.timeline.vertical {
+  flex-direction: column;
+  width: 100%;
+  height: 500px;
+}
+
+/* Segment styles */
+.segment {
+  height: 100%;
+}
+
+.segment.vertical {
+  width: 100%;
+  height: auto;
 }
 </style>
