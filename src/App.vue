@@ -43,7 +43,11 @@ const segments = [
     type: 'prayer'
   }
 ]
-</script>
+const markers = [
+  { name: 'Fajr', position: 10 },
+  { name: 'Sunrise', position: 30 },
+  { name: 'Dhuhr', position: 60 }
+]</script>
 
 <template>
   <div class="timeline">
@@ -58,6 +62,16 @@ const segments = [
       }"
     ></div>
   </div>
+  <div class="markers">
+  <div
+    v-for="m in markers"
+    :key="m.name"
+    class="marker"
+    :style="{ left: m.position + '%' }"
+  >
+    {{ m.name }}
+  </div>
+</div>
 </template>
 
 <style>
@@ -73,4 +87,19 @@ const segments = [
 .segment {
   height: 100%;
 }
-</style>
+.markers {
+  position: relative;
+  height: 0;
+}
+
+.marker {
+  position: absolute;
+  top: -25px;
+  transform: translateX(-50%);
+  background: white;
+  padding: 4px 6px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}</style>
+
